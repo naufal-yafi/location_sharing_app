@@ -3,10 +3,11 @@ import '../../variables/global_variable.dart';
 
 Container informationBar(BuildContext context, location, name, date) {
   return Container(
-      margin: EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30),
       child: Container(
         decoration: boxContainer,
-        padding: EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
+        padding:
+            const EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -14,7 +15,7 @@ Container informationBar(BuildContext context, location, name, date) {
             Row(
               children: [
                 Icon(Icons.assignment, size: 16, color: Colors.blue.shade600),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -26,46 +27,46 @@ Container informationBar(BuildContext context, location, name, date) {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
-              "${location}",
-              style: TextStyle(fontSize: 14, color: Colors.black45),
+              "$location",
+              style: const TextStyle(fontSize: 14, color: Colors.black45),
             ),
-            SizedBox(
+            const SizedBox(
               height: 17,
             ),
-            Text(
+            const Text(
               "Nama Pengirim",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
-              "${name}",
-              style: TextStyle(fontSize: 20),
+              "$name",
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
-            Text(
+            const Text(
               "Tanggal Dibuat",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
-              "${date}",
-              style: TextStyle(fontSize: 20),
+              "$date",
+              style: const TextStyle(fontSize: 20),
             ),
           ],
         ),

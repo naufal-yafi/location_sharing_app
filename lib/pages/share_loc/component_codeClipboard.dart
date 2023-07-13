@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import '../../variables/global_variable.dart';
 import '../../function/copyClipboard.dart';
@@ -6,25 +8,26 @@ import '../../components/successAlert.dart';
 
 Container copyCode(BuildContext context, locationaddress, code) {
   return Container(
-      margin: EdgeInsets.only(top: 35),
+      margin: const EdgeInsets.only(top: 35),
       child: Container(
         decoration: boxContainer,
-        padding: EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
+        padding:
+            const EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Kirimkan Kode Dibawah ke Temanmu.",
+            const Text("Kirimkan Kode Dibawah ke Temanmu.",
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
-            Text("${code}",
-                style: TextStyle(fontSize: 13, color: Colors.black45)),
-            SizedBox(
+            Text("$code",
+                style: const TextStyle(fontSize: 13, color: Colors.black45)),
+            const SizedBox(
               height: 24,
             ),
             ElevatedButton.icon(
@@ -43,9 +46,9 @@ Container copyCode(BuildContext context, locationaddress, code) {
                       "Belum ada lokasi yang dikirim",
                       "Tentukan lokasi dan share lokasi.");
                 } else {
-                  copyToClipboard("${code}");
+                  copyToClipboard("$code");
                   onAlertButtonPressedSuccess(
-                      context, "Berhasil Disalin", "${code}");
+                      context, "Berhasil Disalin", "$code");
                 }
               },
             ),

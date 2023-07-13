@@ -8,17 +8,17 @@ BoxDecoration boxContainer = BoxDecoration(
       color: Colors.grey.withOpacity(0.25),
       spreadRadius: 0,
       blurRadius: 25,
-      offset: Offset(0, 4), // mengatur posisi bayangan
+      offset: const Offset(0, 4), // mengatur posisi bayangan
     ),
   ],
 );
 
 InputDecoration borderInput(text) => InputDecoration(
-      hintText: "${text}",
+      hintText: "$text",
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(
             8.0), // Sesuaikan dengan radius yang diinginkan
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
             color: Colors.white12), // Ubah warna border sesuai kebutuhan
       ),
       filled: true,
@@ -27,7 +27,7 @@ InputDecoration borderInput(text) => InputDecoration(
 
 ButtonStyle customButtonStyle = ButtonStyle(
   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-    EdgeInsets.symmetric(
+    const EdgeInsets.symmetric(
         horizontal: 20.0,
         vertical: 10.0), // Atur ukuran padding sesuai kebutuhan
   ),

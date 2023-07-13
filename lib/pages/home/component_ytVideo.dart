@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter/material.dart';
 
-Column youtubeVideo(BuildContext context, YoutubePlayerController _controller,
+Column youtubeVideo(BuildContext context, YoutubePlayerController controller,
     title, label, marginTop) {
   return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -9,22 +11,23 @@ Column youtubeVideo(BuildContext context, YoutubePlayerController _controller,
       children: [
         Container(
           margin: EdgeInsets.only(top: marginTop),
-          child: Text("${title}",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          child: Text("$title",
+              style:
+                  const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 9,
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             children: [
               Icon(Icons.movie, size: 18, color: Colors.blue.shade600),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
-                "${label}",
+                "$label",
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.blue.shade600),
               )
@@ -32,9 +35,9 @@ Column youtubeVideo(BuildContext context, YoutubePlayerController _controller,
           ),
         ),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: YoutubePlayer(
-            controller: _controller,
+            controller: controller,
             liveUIColor: Colors.white,
             showVideoProgressIndicator: true,
           ),

@@ -4,6 +4,8 @@ import '../../api/api_getAllData.dart';
 
 class DaftarKode extends StatefulWidget {
   const DaftarKode({super.key});
+  @override
+  // ignore: library_private_types_in_public_api
   _DaftarKodeState createState() => _DaftarKodeState();
 }
 
@@ -13,12 +15,13 @@ class _DaftarKodeState extends State<DaftarKode> {
     return FutureBuilder<List>(
       future: getData(),
       builder: (context, snapshot) {
+        // ignore: avoid_print
         if (snapshot.hasError) print(snapshot.error);
         return snapshot.hasData
             ? ItemList(
                 list: snapshot.data,
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               );
       },
@@ -28,17 +31,17 @@ class _DaftarKodeState extends State<DaftarKode> {
 
 class ItemList extends StatelessWidget {
   final List? list;
-  ItemList({this.list});
+  const ItemList({super.key, this.list});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: list == null ? 0 : list!.length,
       itemBuilder: (context, i) {
-        if (list == null || list!.length == 0) {
+        if (list == null || list!.isEmpty) {
           return Container(
-            padding: EdgeInsets.only(top: 5, left: 3, right: 3),
-            child: Center(
+            padding: const EdgeInsets.only(top: 5, left: 3, right: 3),
+            child: const Center(
               child: Text("Data masih kosong."),
             ),
           );

@@ -4,8 +4,6 @@
 
 [![download](<https://img.shields.io/badge/Download%20APK%20(20.1MB)-006BA8?style=for-the-badge&logo=android&logoColor=fafafa>)]()
 
----
-
 #### Description:
 
 The development process is carried out using [FlutLab](https://flutlab.io/) and the development of this application utilizes several technologies such as.

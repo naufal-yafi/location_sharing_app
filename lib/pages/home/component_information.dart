@@ -18,7 +18,7 @@ Column information(BuildContext context) {
               size: 20,
             )),
       ),
-      SizedBox(
+      const SizedBox(
         height: 15,
       ),
       InkWell(
@@ -29,13 +29,13 @@ Column information(BuildContext context) {
             'Dapatkan lokasi dan pesan singkat dari temanmu dari kode yang dibagikan.',
             'Lihat Dimana Temanmu Sekarang',
             true,
-            Icon(
+            const Icon(
               Icons.location_searching,
               color: Colors.white,
               size: 20,
             )),
       ),
-      SizedBox(
+      const SizedBox(
         height: 15,
       ),
       InkWell(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'routes/route.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: Home(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
     );
   }

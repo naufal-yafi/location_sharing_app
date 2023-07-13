@@ -6,7 +6,10 @@ import '../pages/share_loc/page_shareLoc.dart';
 import '../pages/bookmarks/page_bookmarks.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -19,7 +22,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        children: [
+        children: const <Widget>[
           VideoYoutube(),
           GetLocation(),
           ShareYourLocation(),
@@ -30,7 +33,7 @@ class _HomeState extends State<Home> {
         },
       ),
       bottomNavigationBar: BottomBar(
-        textStyle: TextStyle(fontWeight: FontWeight.bold),
+        textStyle: const TextStyle(fontWeight: FontWeight.bold),
         selectedIndex: _currentPage,
         onTap: (int index) {
           _pageController.jumpToPage(index);
@@ -38,25 +41,25 @@ class _HomeState extends State<Home> {
         },
         items: <BottomBarItem>[
           BottomBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: const Icon(Icons.home),
+            title: const Text('Home'),
             activeColor: Colors.blue,
             activeTitleColor: Colors.blue.shade600,
           ),
-          BottomBarItem(
+          const BottomBarItem(
             icon: Icon(Icons.search),
             title: Text('Get Loc'),
             activeColor: Colors.blue,
           ),
-          BottomBarItem(
+          const BottomBarItem(
             icon: Icon(Icons.send),
             title: Text('Share Loc'),
             backgroundColorOpacity: 0.1,
             activeColor: Colors.blue,
           ),
           BottomBarItem(
-            icon: Icon(Icons.book_sharp),
-            title: Text('Bookmarks'),
+            icon: const Icon(Icons.book_sharp),
+            title: const Text('Bookmarks'),
             activeColor: Colors.blue,
             activeIconColor: Colors.blue.shade600,
           ),

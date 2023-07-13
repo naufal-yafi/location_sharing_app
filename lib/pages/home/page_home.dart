@@ -1,10 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'component_ytVideo.dart';
 import 'component_information.dart';
+import '../../function/youtubeController.dart';
 
 class VideoYoutube extends StatefulWidget {
   const VideoYoutube({super.key});
+  @override
   _VideoYoutubeState createState() => _VideoYoutubeState();
 }
 
@@ -12,34 +15,18 @@ class _VideoYoutubeState extends State<VideoYoutube> {
   static String videoID = 'u19PlnC0x2I';
   static String videoID2 = 'Gf2pPJSGtSU';
 
-  YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: videoID,
-    flags: YoutubePlayerFlags(
-      autoPlay: false,
-      mute: false,
-    ),
-  );
-
-  YoutubePlayerController _controller2 = YoutubePlayerController(
-    initialVideoId: videoID2,
-    flags: YoutubePlayerFlags(
-      autoPlay: false,
-      mute: false,
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: ListView(
         children: [
-          youtubeVideo(context, _controller,
+          youtubeVideo(context, ytController(videoID),
               "Bagaimana Menggunakan Aplikasi Ini?", "Video Tutorial", 35),
-          youtubeVideo(context, _controller2, "Apa itu OpenStreetMap?",
-              "Video Penjelasan", 10),
+          youtubeVideo(context, ytController(videoID2),
+              "Apa itu OpenStreetMap?", "Video Penjelasan", 10),
           information(context),
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
         ],

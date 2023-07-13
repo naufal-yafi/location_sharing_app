@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, depend_on_referenced_packages, avoid_print, unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'component_message.dart';
@@ -8,6 +10,9 @@ import '../../variables/global_variable.dart';
 
 class GetLocation extends StatefulWidget {
   const GetLocation({super.key});
+  // ignore: library_private_types_in_public_api
+  @override
+  // ignore: library_private_types_in_public_api
   _GetLocationState createState() => _GetLocationState();
 }
 
@@ -25,7 +30,7 @@ class _GetLocationState extends State<GetLocation> {
         onAlertButtonPressedError(context, 'Tidak Ditemukan.',
             "${codeController.text} tersebut tidak ada.");
       } else {
-        filteredData.forEach((item) {
+        for (var item in filteredData) {
           setState(() {
             latitude = double.parse(item['latitude']);
             longitude = double.parse(item['longitude']);
@@ -34,7 +39,7 @@ class _GetLocationState extends State<GetLocation> {
             message = item['message'].toString();
             location = item['location'].toString();
           });
-        });
+        }
       }
     }).catchError((error) {
       print('Error: $error');
@@ -45,10 +50,10 @@ class _GetLocationState extends State<GetLocation> {
   Widget build(BuildContext context) {
     if (latitude == 0 || longitude == 0) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ListView(children: [
           _inputCode(context),
-          SizedBox(
+          const SizedBox(
             height: 35,
           )
         ]),
@@ -56,16 +61,16 @@ class _GetLocationState extends State<GetLocation> {
     } else {
       if (message == "") {
         return Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: ListView(
             children: [
               _inputCode(context),
               informationBar(context, location, name, date),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               _mapsDisplay(context),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               )
             ],
@@ -73,16 +78,16 @@ class _GetLocationState extends State<GetLocation> {
         );
       } else {
         return Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: ListView(
             children: [
               _inputCode(context),
               messageBar(context, name, location, message, date),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               _mapsDisplay(context),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               )
             ],
@@ -94,7 +99,7 @@ class _GetLocationState extends State<GetLocation> {
 
   Container _mapsDisplay(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       height: 400,
       child: OpenStreetMapSearchAndPick(
           center: LatLong(latitude, longitude),
@@ -113,27 +118,28 @@ class _GetLocationState extends State<GetLocation> {
 
   Container _inputCode(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 35),
+        margin: const EdgeInsets.only(top: 35),
         child: Container(
           decoration: boxContainer,
-          padding: EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
+          padding:
+              const EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Masukkan Kode dari Temanmu.",
+              const Text("Masukkan Kode dari Temanmu.",
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TextFormField(
                 controller: codeController,
                 decoration: borderInput('Kode UUID'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               SizedBox(

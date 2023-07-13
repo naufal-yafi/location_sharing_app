@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, unnecessary_import, depend_on_referenced_packages, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +14,7 @@ import 'component_codeClipboard.dart';
 
 class ShareYourLocation extends StatefulWidget {
   const ShareYourLocation({super.key});
+  @override
   _ShareYourLocationState createState() => _ShareYourLocationState();
 }
 
@@ -29,14 +32,14 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
   Widget build(BuildContext context) {
     if (locationaddress == "Belum Ditentukan") {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             _mapsDisplay(context),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
           ],
@@ -44,19 +47,19 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
       );
     } else if (code != '' && locationaddress != "Belum Ditentukan") {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
             copyCode(context, locationaddress, code),
-            SizedBox(
+            const SizedBox(
               height: 36,
             ),
             _mapsDisplay(context),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             _sendLocation(context),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
           ],
@@ -64,18 +67,18 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
       );
     } else {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             _mapsDisplay(context),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             _sendLocation(context),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
           ],
@@ -86,7 +89,7 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
 
   Container _mapsDisplay(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       height: 400,
       child: OpenStreetMapSearchAndPick(
           center: LatLong(latitude, longitude),
@@ -111,39 +114,40 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
 
   Container _sendLocation(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 5),
+        margin: const EdgeInsets.only(top: 5),
         child: Container(
           decoration: boxContainer,
-          padding: EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
+          padding:
+              const EdgeInsets.only(top: 25, right: 30, bottom: 30, left: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Kirim Lokasi yang Ditandai.",
+              const Text("Kirim Lokasi yang Ditandai.",
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text("${locationaddress}",
-                  style: TextStyle(fontSize: 15, color: Colors.black45)),
-              SizedBox(
+              Text(locationaddress,
+                  style: const TextStyle(fontSize: 15, color: Colors.black45)),
+              const SizedBox(
                 height: 19,
               ),
               TextFormField(
                 controller: nameController,
                 decoration: borderInput("nama pengirim"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
               TextFormField(
                 controller: messsageController,
                 decoration: borderInput("pesan singkat"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 34,
               ),
               ElevatedButton.icon(
@@ -164,20 +168,21 @@ class _ShareYourLocationState extends State<ShareYourLocation> {
                   } else {
                     setState(() {
                       if (nameController.text == '' ||
+                          // ignore: unnecessary_null_comparison
                           nameController.text == null) {
                         name = 'Anonymous';
                       } else {
                         name = nameController.text;
                       }
                       message = messsageController.text;
-                      code = Uuid().v4();
+                      code = const Uuid().v4();
                     });
 
-                    copyToClipboard("${code}");
+                    copyToClipboard(code);
                     addData(latitude, longitude, code, datetime,
                         locationaddress, name, message);
                     onAlertButtonPressedSuccess(
-                        context, "Berhasil Terkirim", "${locationaddress}");
+                        context, "Berhasil Terkirim", locationaddress);
                   }
                 },
               ),

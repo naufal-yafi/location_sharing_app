@@ -2,7 +2,7 @@
 
 # Location Sharing App
 
-[![download](<https://img.shields.io/badge/Download%20APK%20(20.1MB)-006BA8?style=for-the-badge&logo=android&logoColor=fafafa>)]()
+[![download](<https://img.shields.io/badge/Download%20APK%20(20.1MB)-006BA8?style=for-the-badge&logo=android&logoColor=fafafa>)](https://github.com/naufal-yafi/location_sharing_app/releases/download/release-v0.4.3/location.sharing.apk)
 
 #### Description:
 

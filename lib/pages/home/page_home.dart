@@ -22,9 +22,9 @@ class _VideoYoutubeState extends State<VideoYoutube> {
       child: ListView(
         children: [
           youtubeVideo(context, ytController(videoID),
-              "Bagaimana Menggunakan Aplikasi Ini?", "Video Tutorial", 35),
+              "Bagaimana Menggunakan Aplikasi Ini?", "Video Tutorial", 35.0),
           youtubeVideo(context, ytController(videoID2),
-              "Apa itu OpenStreetMap?", "Video Penjelasan", 10),
+              "Apa itu OpenStreetMap?", "Video Penjelasan", 10.0),
           information(context),
           const SizedBox(
             height: 35,
